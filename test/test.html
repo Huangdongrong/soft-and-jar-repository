@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Jquery javascript 组件化设计（高级篇）</title>
+    <script src="jquery-1.11.0.min.js"></script>
+    <script src="table.js"></script>
+    <style type="text/css">
+        table{  width: 500px;  text-align: center;  }
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            //初始化
+            table = $("#tableId").test.table({tableId: "#tableId"});
+
+            /**
+             * 删除
+             */
+            $("table").on("click",".del",function(){
+               table._delete(this);
+            })
+        });
+        /**
+         * 增加
+         */
+        function add(){
+            table._add()
+        }
+    </script>
+</head>
+<body>
+    <button onclick="add()">添加</button>
+    <table id="tableId">
+        <tr>
+            <th onclick="add()">姓名</th>
+            <th>年龄</th>
+        </tr>
+        <tr><td>小明</td><td>28</td><td><button class="del">删除</button></td></tr>
+    </table>
+</body>
+</html>
